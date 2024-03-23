@@ -4,6 +4,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def index():
     """The landing page that returns “Hello HBNB!”"""
@@ -22,11 +23,11 @@ def ctext(text):
     return "C {}".format(text)
 
 
-@app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
+# @app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def ptext (text="is cool"):
+def ptext(text="is cool"):
     """Returns Python followed by text variable"""
-    return "Python {}".format(text)
+    return "Python {}".format(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
